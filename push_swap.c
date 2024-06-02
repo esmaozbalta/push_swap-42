@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/02 15:57:11 by esozbalt          #+#    #+#             */
+/*   Updated: 2024/06/02 20:16:33 by esozbalt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	space_check(const	char	*str)
@@ -34,7 +46,7 @@ int	main(int ac, char **av)
 	is_sort = check_sorted(stack_a);
 	if (is_sort)
 		return (0);
-	set_que(stack_a);
+	index_setter(stack_a);
 	len = lenstack(stack_a);
 	selectsort(stack_a, stack_b, len);
 	return (0);

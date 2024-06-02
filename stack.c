@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:07:52 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/05/17 20:15:15 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:47:35 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 //argümanını boşluklara göre ayırarak 
 //her bir parçayı birer düğüm olarak bağlı listeye ekler ve 
 //daha sonra dinamik olarak ayrılan belleği serbest bırakır.
-void	split_node(t_stack **a_stack, char **av)
+void	split_node(t_stack **a_stack, char *av)
 {
 	int		i;
 	char	**splitted;
 	t_stack	*node; 
 
 	i = 0;
-	splitted = ft_split(av, ' '); //girilen argumani bosluklardan ayirir
+	splitted = ft_split(av, ' '); //girilen argumani bosluklardan ayirir 
 	while(splitted[i])
 	{
 		node = ft_lstnew(ft_atoi(splitted[i]));//parcalari int e cevirir ve t_stack dugumu olusturup node a atar
@@ -77,14 +77,14 @@ int	check_sorted(t_stack **a_stack)
 	return (0);
 }
 
-void	set_neg(t_stack **a_stack)//gösterilen bağlı listedeki her düğümün queue_num değerini -1 olarak ayarlar. 
+void	set_neg(t_stack **a_stack)//gösterilen bağlı listedeki her düğümün index değerini -1 olarak ayarlar. 
 {
 	t_stack	*tmp;
 
 	tmp = *a_stack;
 	while (tmp)//tum tmpyi dolasir tum que degerlerini -1 yapar
 	{
-		tmp->queue_num = -1;
+		tmp->index = -1;
 		tmp = tmp->next;
 	}
 }

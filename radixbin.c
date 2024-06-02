@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radixbin.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/02 15:56:58 by esozbalt          #+#    #+#             */
+/*   Updated: 2024/06/02 16:31:15 by esozbalt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*find_min2(t_stack	**stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*min;
-	int x;
+	int 	x;
 
 	x = 0;
 	tmp = *stack_a;
 	min = NULL;
 	while(tmp)
 	{
-		if ((!x || tmp->value < min->value) && (tmp->queue_num == -1))
+		if ((!x || tmp->value < min->value) && (tmp->index == -1))
 		{
 			x = 1;
 			min = tmp;
@@ -21,7 +33,7 @@ t_stack	*find_min2(t_stack	**stack_a)
 	return (min);
 }
 
-void	set_que(t_stack	**stack_a)
+void	index_setter(t_stack	**stack_a)
 {
 	t_stack	*min;
 	int		i;
@@ -30,25 +42,25 @@ void	set_que(t_stack	**stack_a)
 	i = 0;
 	while(min)
 	{
-		min->queue_num = i;
+		min->index = i;
 		i++;
 		min = find_min2(stack_a);
 	}
 }
 
-void	radix_binary(t_stack	**stack_a, t_stack	**stack_b)
+void	radixbin(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	push;
 	int	len;
 
 	push = 0;
-	set_que(stack_a);
+	index_setter(stack_a);
 	while(!check_sorted(stack_a))
 	{
 		len = ft_lstsize(*stack_a);
 		while(len)
 		{
-			if ((((*stack_a)->queue_num >> push) & 1) == 0)
+			if ((((*stack_a)->index >> push) & 1) == 0)
 				pb(stack_b, stack_a);
 			else
 				ra(stack_a);

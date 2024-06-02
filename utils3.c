@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:25:01 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/05/17 18:38:47 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/02 20:14:33 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rb(t_stack **b_stack)
 
 void	rr(t_stack **a_stack, t_stack **b_stack)
 {
-	if ((ft_lstsize(*a_stack) < 2) || (ft_lstsize(*b_stack < 2)))
+	if ((ft_lstsize(*a_stack) < 2) || (ft_lstsize(*b_stack) < 2))
 		return ;
 	rotate(a_stack);
 	rotate(b_stack);

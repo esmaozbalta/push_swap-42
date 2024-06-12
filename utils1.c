@@ -6,41 +6,41 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:24:18 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/05/17 19:08:47 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:28:17 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **stack) //en üstteki iki elemanın yerini değiştirme (bardak boşaltma mantığı)
+void	swap(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (ft_lstsize(*stack) < 2) //stackin boyutu 2 den küçük ise 0 veya 1 eleman vardır değişecek birşey yoktur
-		return;
-	tmp =  (*stack)->next; //stackin şuan işaret ettiği elemanın bir sonrakinin adresini tmp ye atar
-	(*stack)->next = tmp->next;//tmpdeki ikinci elemanın adresi stack de ki ikinci elemana atılır (*stack->next artık tmp->next i işaret eder onun değerini alır)
-	tmp->next = *stack; //tmpnin ikinci elemanına stackin elemanı adresi atılır
-	*stack = tmp; //tmp (stackin ikinci elemanı) stack e atılır
+	if (ft_lstsize(*stack) < 2)
+		return ;
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	tmp->next = *stack;
+	*stack = tmp;
 }
 
-void	sa(t_stack **a_stack)//a_stack in en üst iki elemanını değiştir
+void	sa(t_stack **stack_a)
 {
-	swap(a_stack);
+	swap(stack_a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **b_stack)//b_stack in en üst iki elemanını değiştir
+void	sb(t_stack **stack_b)
 {
-	swap(b_stack);
+	swap(stack_b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **a_stack, t_stack **b_stack) //ss fonksiyonu, hem a_stack hem de b_stack yığınlarının en üstündeki iki elemanı değiştirir
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((ft_lstsize(*a_stack) < 2) || (ft_lstsize(*b_stack) < 2))//neden ||
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return ;
-	swap(a_stack);
-	swap(b_stack);
+	swap(stack_a);
+	swap(stack_b);
 	write(1, "ss\n", 3);
 }

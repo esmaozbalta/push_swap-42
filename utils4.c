@@ -6,21 +6,21 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 18:23:37 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/05/17 18:55:02 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:38:15 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_stack **stack) // son elemanı en başa taşır
+void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*newstart;
 	t_stack	*newend;
 
 	if (ft_lstsize(*stack) < 2)
 		return ;
-	newstart = ft_lstlast(*stack); //son eleman atılır
-	newend = *stack; //ilk eleman atılır
+	newstart = ft_lstlast(*stack);
+	newend = *stack;
 	while (newend->next->next)
 		newend = newend->next;
 	newend->next = NULL;
@@ -28,23 +28,23 @@ void	reverse_rotate(t_stack **stack) // son elemanı en başa taşır
 	*stack = newstart;
 }
 
-void	rra(t_stack **a_stack)
+void	rra(t_stack **stack_a)
 {
-	reverse_rotate(a_stack);
+	reverse_rotate(stack_a);
 	write (1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b_stack)
+void	rrb(t_stack **stack_b)
 {
-	reverse_rotate(b_stack);
+	reverse_rotate(stack_b);
 	write (1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a_stack, t_stack **b_stack)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((ft_lstsize(*a_stack) < 2) || (ft_lstsize(*b_stack) < 2))
+	if (ft_lstsize(*stack_a) < 2 && ft_lstsize(*stack_b) < 2)
 		return ;
-	reverse_rotate(a_stack);
-	reverse_rotate(b_stack);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 	write (1, "rrr\n", 4);
 }

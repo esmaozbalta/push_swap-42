@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 19:12:03 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/05/17 19:21:32 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:40:21 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	catch_error(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	while ((*stack)->next) //son elemana gelene kadar döndürür
+	while ((*stack)->next)
 	{
 		tmp = (*stack)->next;
-		while(tmp)
+		while (tmp)
 		{
-			if((*stack)->value == tmp->value) //stack üzerinde aynı veriden iki tane olduğunu gösterir
+			if ((*stack)->value == tmp->value)
 			{
 				write (2, "Error\n", 6);
 				exit(0);
 			}
 			tmp = tmp->next;
 		}
-		stack = &(*stack)->next;//
+		stack = &(*stack)->next;
 	}
 }

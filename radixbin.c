@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:56:58 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/02 16:31:15 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:18:13 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ t_stack	*find_min2(t_stack	**stack_a)
 {
 	t_stack	*tmp;
 	t_stack	*min;
-	int 	x;
+	int		x;
 
 	x = 0;
 	tmp = *stack_a;
 	min = NULL;
-	while(tmp)
+	while (tmp)
 	{
 		if ((!x || tmp->value < min->value) && (tmp->index == -1))
 		{
@@ -40,7 +40,7 @@ void	index_setter(t_stack	**stack_a)
 
 	min = find_min2(stack_a);
 	i = 0;
-	while(min)
+	while (min)
 	{
 		min->index = i;
 		i++;
@@ -55,10 +55,10 @@ void	radixbin(t_stack	**stack_a, t_stack	**stack_b)
 
 	push = 0;
 	index_setter(stack_a);
-	while(!check_sorted(stack_a))
+	while (!check_sorted(stack_a))
 	{
 		len = ft_lstsize(*stack_a);
-		while(len)
+		while (len)
 		{
 			if ((((*stack_a)->index >> push) & 1) == 0)
 				pb(stack_b, stack_a);
@@ -67,7 +67,7 @@ void	radixbin(t_stack	**stack_a, t_stack	**stack_b)
 			len--;
 		}
 		push++;
-		while(*stack_b)
+		while (*stack_b)
 			pa(stack_a, stack_b);
 	}
 }

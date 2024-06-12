@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:40:46 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/02 19:53:09 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:43:31 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	slen;
 	size_t	max;
 
-	if (*s)
+	if (!s)
 		return (NULL);
 	max = 0;
 	slen = ft_strlen(s);

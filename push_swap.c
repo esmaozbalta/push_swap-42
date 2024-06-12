@@ -6,13 +6,13 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:57:11 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/02 20:16:33 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:47:53 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	space_check(const	char	*str)
+void	space_check(const char	*str)
 {
 	size_t	space;
 	size_t	i;
@@ -25,13 +25,13 @@ void	space_check(const	char	*str)
 			space++;
 		i++;
 	}
-	if (i == space) //dizinin icinde sadece bosluk var ise program sonlanir
+	if (i == space)
 		exit (0);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack **stack_a;
+	t_stack	**stack_a;
 	t_stack	**stack_b;
 	int		len;
 	int		is_sort;
@@ -46,8 +46,6 @@ int	main(int ac, char **av)
 	is_sort = check_sorted(stack_a);
 	if (is_sort)
 		return (0);
-	index_setter(stack_a);
 	len = lenstack(stack_a);
 	selectsort(stack_a, stack_b, len);
-	return (0);
 }

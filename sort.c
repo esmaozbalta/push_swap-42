@@ -6,24 +6,24 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:57:03 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/02 20:17:00 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:50:05 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	selectsort(t_stack **a_stack, t_stack **b_stack, int len)
+void	selectsort(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	if (len == 2)
-		sa(a_stack);//ilk iki elemanin yerini degisir
+		sa(stack_a);
 	if (len == 3)
-		sort_3(a_stack);
+		sort_3(stack_a);
 	if (len == 4)
-		sort_4(a_stack, b_stack);
+		sort_4(stack_a, stack_b);
 	if (len == 5)
-		sort_5(a_stack, b_stack);
+		sort_5(stack_a, stack_b);
 	if (len > 5)
-		radixbin(a_stack, b_stack);
+		radixbin(stack_a, stack_b);
 }
 
 int	find_min(t_stack	**stack_a)
@@ -42,15 +42,15 @@ int	find_min(t_stack	**stack_a)
 	return (min);
 }
 
-void	sort_3(t_stack **a_stack)
+void	sort_3(t_stack **stack_a)
 {
-	index_setter(a_stack);
-	if ((*a_stack)->index == 2)
-		ra(a_stack);//ilk elemani sona tasir
-	else if ((*a_stack)->next->index == 2)
-		rra(a_stack);//son elemani basa tasir
-	if (!check_sorted(a_stack))
-		sa(a_stack);
+	index_setter(stack_a);
+	if ((*stack_a)->index == 2)
+		ra(stack_a);
+	else if ((*stack_a)->next->index == 2)
+		rra(stack_a);
+	if (!check_sorted(stack_a))
+		sa(stack_a);
 }
 
 void	sort_4(t_stack	**stack_a, t_stack **stack_b)

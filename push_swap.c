@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:57:11 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/12 21:53:30 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 21:57:52 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	nullcheck(int ac, char **av)
 		}
 		i++;
 	}
-
 }
 
 int	main(int ac, char **av)

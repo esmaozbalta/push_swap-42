@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:07:52 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/12 18:47:30 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/12 21:57:41 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	create_stack(t_stack **stack_a, char **av)
 	int		i;
 
 	i = 1;
-	
 	while (av[i])
 	{
 		if (ft_strrchr(av[i], ' ') != NULL)

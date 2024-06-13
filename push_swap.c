@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:57:11 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/12 21:57:52 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:38:15 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,6 @@ int	main(int ac, char **av)
 		return (0);
 	len = lenstack(stack_a);
 	selectsort(stack_a, stack_b, len);
+	free(stack_a);
+	free(stack_b);
 }

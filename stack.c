@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 20:07:52 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/12 21:57:41 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:38:43 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	create_stack(t_stack **stack_a, char **av)
 		{
 			node = ft_lstnew(ft_atoi(av[i]));
 			ft_lstadd_back(stack_a, node);
+			free(node);
 		}
 		i++;
 	}

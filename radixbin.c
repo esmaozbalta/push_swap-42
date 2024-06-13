@@ -6,7 +6,7 @@
 /*   By: esozbalt <esozbalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:56:58 by esozbalt          #+#    #+#             */
-/*   Updated: 2024/06/12 17:18:13 by esozbalt         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:32:42 by esozbalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ void	index_setter(t_stack	**stack_a)
 
 void	radixbin(t_stack	**stack_a, t_stack	**stack_b)
 {
-	int	push;
+	int	i;
 	int	len;
 
-	push = 0;
+	i = 0;
 	index_setter(stack_a);
 	while (!check_sorted(stack_a))
 	{
 		len = ft_lstsize(*stack_a);
 		while (len)
 		{
-			if ((((*stack_a)->index >> push) & 1) == 0)
+			if ((((*stack_a)->index >> i) & 1) == 0)
 				pb(stack_b, stack_a);
 			else
 				ra(stack_a);
 			len--;
 		}
-		push++;
+		i++;
 		while (*stack_b)
 			pa(stack_a, stack_b);
 	}

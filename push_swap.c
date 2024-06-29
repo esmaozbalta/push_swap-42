@@ -45,6 +45,18 @@ void	nullcheck(int ac, char **av)
 	}
 }
 
+void free_stack(t_stack *stack)
+{
+    t_stack *temp;
+
+    while (stack)
+    {
+        temp = stack;
+        stack = stack->next;
+        free(temp);
+    }
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	**stack_a;
@@ -61,10 +73,17 @@ int	main(int ac, char **av)
 	*stack_b = NULL;
 	create_stack(stack_a, av);
 	is_sort = check_sorted(stack_a);
-	if (is_sort)
-		return (0);
-	len = lenstack(stack_a);
-	selectsort(stack_a, stack_b, len);
+    if (is_sort)
+    {
+        free_stack(*stack_a);
+        free(stack_a);
+        free(stack_b);
+        return (0);
+    }
+    len = lenstack(stack_a);
+    selectsort(stack_a, stack_b, len);
+    free_stack(*stack_a);
+    free_stack(*stack_b);
 	free(stack_a);
 	free(stack_b);
 }

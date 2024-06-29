@@ -49,7 +49,6 @@ void	create_stack(t_stack **stack_a, char **av)
 		{
 			node = ft_lstnew(ft_atoi(av[i]));
 			ft_lstadd_back(stack_a, node);
-			free(node);
 		}
 		i++;
 	}

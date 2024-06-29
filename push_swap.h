@@ -46,6 +46,7 @@ void	nullcheck(int ac, char **av);
 void	catch_error(t_stack **stack);
 
 void	space_check(const char	*str);
+void 	free_stack(t_stack *stack);
 
 void	split_node(t_stack **stack_a, char *av);
 void	create_stack(t_stack **stack_a, char **av);
